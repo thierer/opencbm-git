@@ -75,6 +75,8 @@ package()
   mkdir -p "${pkgdir}/etc/udev/rules.d"
   make -f LINUX/Makefile PREFIX="/usr" MANDIR="/usr/share/man/man1" INFODIR="/usr/share/info" DESTDIR="${pkgdir}/" install install-plugin-xum1541 install-plugin-xu1541
   mv "${pkgdir}/etc/opencbm.conf" "${pkgdir}/etc/opencbm.conf.sample"
+  # Don't overwrite ld.so.conf
+  rm -f ${pkgdir}/etc/ld.so.conf
 
 
   # kernel module: build (optional)
