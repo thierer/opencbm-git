@@ -1,0 +1,17 @@
+# note() function stolen from google-chrome PKGBUILD
+# (which might well not be the original source)
+note() {
+    printf "${blue}==>${yellow} NOTE:${bold} $1${all_off}\n"
+}
+
+all_off="$(tput sgr0)"
+bold="${all_off}$(tput bold)"
+blue="${bold}$(tput setaf 4)"
+yellow="${bold}$(tput setaf 3)"
+
+post_install()
+{
+  note "OpenCBM is configured to use the xum1541 plugin by default."
+  note "To use the xu1541 or xa1541 plugin instead, change the \"default\"" 
+  note "entry in the \"plugins\" section of /etc/opencbm.conf accordingly."
+}

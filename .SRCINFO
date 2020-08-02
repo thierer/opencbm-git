@@ -3,6 +3,7 @@ pkgbase = opencbm-git
 	pkgver = r1432.eabd3d23
 	pkgrel = 1
 	url = http://sourceforge.net/projects/opencbm/
+	install = opencbm-git.install
 	arch = i686
 	arch = x86_64
 	license = GPL2
@@ -11,6 +12,7 @@ pkgbase = opencbm-git
 	depends = libusb
 	optdepends = ncurses: enable interactive mode for cbmlinetester
 	provides = opencbm
+	backup = etc/opencbm.conf
 	source = git+https://github.com/OpenCBM/OpenCBM.git
 	md5sums = SKIP
 

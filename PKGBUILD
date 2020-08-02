@@ -20,9 +20,9 @@ optdepends=('ncurses: enable interactive mode for cbmlinetester')
 provides=('opencbm')
 conflicts=()
 replaces=()
-backup=()
+backup=('etc/opencbm.conf')
 options=()
-install=
+install=$pkgname.install
 changelog=
 noextract=()
 _repodirname=OpenCBM
@@ -72,10 +72,15 @@ package()
   cd "${srcdir}/${_repodirname}"
   mkdir -p "${pkgdir}/etc/udev/rules.d"
   make -f LINUX/Makefile PREFIX="/usr" MANDIR="/usr/share/man/man1" INFODIR="/usr/share/info" DESTDIR="${pkgdir}/" install install-plugin-xum1541 install-plugin-xu1541
-  mv "${pkgdir}/etc/opencbm.conf" "${pkgdir}/etc/opencbm.conf.sample"
+
   # Don't overwrite ld.so.conf
   rm -f ${pkgdir}/etc/ld.so.conf
 
+  # Remove scary warning from /etc/opencbm.conf and don't install both
+  # /etc/opencbm.conf.d/ and opencbm_plugin_helper_tools at all
+  sed -i "/^;.*/d" ${pkgdir}/etc/opencbm.conf
+  rm -rf ${pkgdir}/etc/opencbm.conf.d/
+  rm ${pkgdir}/usr/bin/opencbm_plugin_helper_tools
 
   # kernel module: build (optional)
   if test "${build_kernel_module}" != ""; then
