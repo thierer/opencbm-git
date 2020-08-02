@@ -10,6 +10,7 @@ pkgbase = opencbm-git
 	depends = ncurses
 	depends = libusb
 	depends = libusb-compat
+	provides = opencbm
 	source = git+https://github.com/OpenCBM/OpenCBM.git
 	md5sums = SKIP
 
