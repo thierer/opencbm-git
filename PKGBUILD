@@ -5,7 +5,7 @@
 # Maintainer: Uffe Jakobsen <microtop@starion.dk>
 #
 pkgname=opencbm-git
-pkgver=r1252.9b57b1f
+pkgver=r1432.eabd3d23
 pkgrel=1
 epoch=
 pkgdesc="OpenCBM allows access to Commodore (C64) storage devices VIC 1540, 1541, 1570, 1571, or even 1581 floppy drive"
