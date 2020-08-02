@@ -46,8 +46,6 @@ prepare()
   sed -i '\!#include <asm/uaccess.h>!s!.*!&\n#include <linux/uaccess.h>\n#include <linux/sched/signal.h>!' opencbm/sys/linux/cbm_module.c
   # kernel module: Makefile is needed later
   sed -i '\!-rm -f Makefile!d' opencbm/sys/linux/LINUX/Makefile
-  # HACK: testlines.1 does not exist
-  touch opencbm/sample/testlines/testlines.1
 }
 
 build()
